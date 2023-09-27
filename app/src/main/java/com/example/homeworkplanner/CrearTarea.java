@@ -144,7 +144,7 @@ public class CrearTarea extends AppCompatActivity {
             calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
             calendar.set(Calendar.MINUTE, minute);
 
-            // Formato de la hora estimada seleccionada y mostrada en el EditText
+            // Formato de la hora estimada seleccionada y mostrada en el EditText.
             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
             hora.setText(timeFormat.format(calendar.getTime()));
         }
