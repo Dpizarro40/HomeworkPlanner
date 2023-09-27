@@ -60,7 +60,6 @@ public class CrearTarea extends AppCompatActivity {
 
                 Tarea nuevaTarea = new Tarea(title, description, date, location, time);
 
-                // Por ejemplo:
                 Intent intent = new Intent(CrearTarea.this, Inicio.class);
                 startActivity(intent);
             }
@@ -116,7 +115,7 @@ public class CrearTarea extends AppCompatActivity {
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, day);
 
-            // Formatea la fecha seleccionada y muéstrala en el EditText
+            // Formato de la fecha seleccionada y mostrar en el EditText
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
             fecha.setText(dateFormat.format(calendar.getTime()));
         }
@@ -131,7 +130,7 @@ public class CrearTarea extends AppCompatActivity {
                 timeSetListener,
                 horaDelDia,
                 minuto,
-                true // Mostrar formato de 24 horas
+                true //Mostrar formato de 24 horas
         );
 
         // Muestra el diálogo del selector de hora
@@ -141,11 +140,11 @@ public class CrearTarea extends AppCompatActivity {
     private TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
         @Override
         public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
-            // Actualiza el calendario con la hora estimada seleccionada
+            // Actualiza el calendario con la hora estimada seleccionada.
             calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
             calendar.set(Calendar.MINUTE, minute);
 
-            // Formatea la hora estimada seleccionada y muéstrala en el EditText
+            // Formato de la hora estimada seleccionada y mostrada en el EditText
             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
             hora.setText(timeFormat.format(calendar.getTime()));
         }
