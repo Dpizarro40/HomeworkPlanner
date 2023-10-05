@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -86,6 +87,7 @@
                 android:ems="10"
                 android:focusable="false"
                 android:hint="Fecha estimada"
+                android:drawableStart="@drawable/baseline_calendar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.269"
@@ -102,6 +104,7 @@
                 android:ems="10"
                 android:focusable="false"
                 android:hint="Hora estimada"
+                android:drawableStart="@drawable/baseline_time"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.216"
@@ -164,7 +167,7 @@
                 android:id="@+id/btnCrear"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="28dp"
                 android:text="Crear"
@@ -175,7 +178,7 @@
                 android:id="@+id/btnCancelar"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginBottom="28dp"
                 android:text="Cancelar"
                 app:layout_constraintBottom_toBottomOf="parent"
