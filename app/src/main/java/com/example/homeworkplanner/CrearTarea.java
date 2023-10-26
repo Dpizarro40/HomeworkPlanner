@@ -52,13 +52,12 @@ public class CrearTarea extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Obtener los valores de los campos de texto
-                String title = nombre.getText().toString();
-                String description = descripcion.getText().toString();
-                String date = fecha.getText().toString();
-                String location = ubicacion.getText().toString();
-                String time = hora.getText().toString();
-
-                Tarea nuevaTarea = new Tarea(title, description, date, location, time);
+                MyDatabaseHelper myDB = new MyDatabaseHelper(CrearTarea.this);
+                myDB.aniadirTarea(nombre.getText().toString().trim(),
+                                  descripcion.getText().toString().trim(),
+                                  ubicacion.getText().toString().trim(),
+                                  fecha.getText().toString().trim(),
+                                  hora.getText().toString().trim());
 
                 Intent intent = new Intent(CrearTarea.this, Inicio.class);
                 startActivity(intent);
@@ -82,6 +81,7 @@ public class CrearTarea extends AppCompatActivity {
         });
 
         radioGroup = findViewById(R.id.rbPrioridad);
+        //Método al seleccionar uno de los radiobutton
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -95,6 +95,7 @@ public class CrearTarea extends AppCompatActivity {
             }
         });
     }
+    //Metodo de fecha
     private void mostrarDatePicker() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
@@ -107,6 +108,8 @@ public class CrearTarea extends AppCompatActivity {
         // Muestra el diálogo del selector de fecha
         datePickerDialog.show();
     }
+
+    //Método para el formato de la fecha
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(android.widget.DatePicker datePicker, int year, int month, int day) {
@@ -121,6 +124,7 @@ public class CrearTarea extends AppCompatActivity {
         }
     };
 
+    //Método para desplegar un calendario para el campo Fecha estimada
     private void mostrarTimePicker() {
         int horaDelDia = calendar.get(Calendar.HOUR_OF_DAY);
         int minuto = calendar.get(Calendar.MINUTE);
@@ -137,6 +141,7 @@ public class CrearTarea extends AppCompatActivity {
         timePickerDialog.show();
     }
 
+    //Método para desplegar un selector de hora para el campo Hora
     private TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
         @Override
         public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
