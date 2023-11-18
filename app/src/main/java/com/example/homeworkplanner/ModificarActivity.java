@@ -49,7 +49,7 @@ public class ModificarActivity extends AppCompatActivity {
         eliminar = findViewById(R.id.btnEliminar);
         modificar = findViewById(R.id.btnModificar);
         cancelar = findViewById(R.id.btnCancelar2);
-
+         // Incorporando nuevos botones.
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
