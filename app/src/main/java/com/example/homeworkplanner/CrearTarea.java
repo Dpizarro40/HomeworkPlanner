@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.example.homeworkplanner.Controlador.ConexionHelper;
+import com.example.homeworkplanner.Controlador.Utility;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -33,7 +38,16 @@ public class CrearTarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_tarea);
 
+        // Obtener referencias a los elementos de la interfaz
+        nombre = findViewById(R.id.txtNombre);
+        descripcion = findViewById(R.id.txtDescripcion);
+        fecha = findViewById(R.id.txtFecha);
+        ubicacion = findViewById(R.id.txtUbicacion);
+        hora = findViewById(R.id.txtHora);
+
+        crear = findViewById(R.id.btnCrear);
         cancelar = findViewById(R.id.btnCancelar);
+
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,18 +55,12 @@ public class CrearTarea extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // Obtener referencias a los elementos de la interfaz
-        nombre = findViewById(R.id.txtNombre);
-        descripcion = findViewById(R.id.txtDescripcion);
-        fecha = findViewById(R.id.txtFecha);
-        ubicacion = findViewById(R.id.txtUbicacion);
-        hora = findViewById(R.id.txtHora);
-        crear = findViewById(R.id.btnCrear);
+
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Obtener los valores de los campos de texto
-                MyDatabaseHelper myDB = new MyDatabaseHelper(CrearTarea.this);
+                /*MyDatabaseHelper myDB = new MyDatabaseHelper(CrearTarea.this);
                 myDB.aniadirTarea(nombre.getText().toString().trim(),
                                   descripcion.getText().toString().trim(),
                                   ubicacion.getText().toString().trim(),
@@ -60,9 +68,14 @@ public class CrearTarea extends AppCompatActivity {
                                   hora.getText().toString().trim());
 
                 Intent intent = new Intent(CrearTarea.this, Inicio.class);
+                startActivity(intent);*/
+                registrarUsuarios();
+                Intent intent = new Intent(CrearTarea.this, Inicio.class);
                 startActivity(intent);
             }
         });
+
+
 
         calendar = Calendar.getInstance();
 
@@ -154,4 +167,19 @@ public class CrearTarea extends AppCompatActivity {
             hora.setText(timeFormat.format(calendar.getTime()));
         }
     };
+    private void registrarUsuarios(){
+        ConexionHelper conn = new ConexionHelper(this,"Mis_tareas", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Utility.COLUMN_TITLE,nombre.getText().toString());
+        contentValues.put(Utility.COLUMN_DESCRIPTION,descripcion.getText().toString());
+        contentValues.put(Utility.COLUMN_LOCATION,ubicacion.getText().toString());
+        contentValues.put(Utility.COLUMN_DATE,fecha.getText().toString());
+        contentValues.put(Utility.COLUMN_TIME,hora.getText().toString());
+
+        Long idResultante = db.insert(Utility.TABLE_NAME,Utility.COLUMN_ID,contentValues);
+        Toast.makeText(getApplicationContext(), "ATENCION, id Registrado..." + idResultante, Toast.LENGTH_SHORT).show();
+        db.close();
+    }
 }

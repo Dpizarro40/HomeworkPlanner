@@ -22,7 +22,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_LOCATION = "ubicacion";
     private static final String COLUMN_DATE = "fecha_estimada";
     private static final String COLUMN_TIME = "hora";
-    public MyDatabaseHelper(@Nullable Context context) {
+    MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -60,7 +60,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context,"Added Successfully!",Toast.LENGTH_SHORT).show();
         }
     }
-
+/*
     Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -70,5 +70,25 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query,null);
         }
         return cursor;
+    }*/
+
+    void updateData(String row_id, String title, String description, String location, String date, String time){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_TITLE, title);
+        cv.put(COLUMN_DESCRIPTION, description);
+        cv.put(COLUMN_LOCATION, location);
+        cv.put(COLUMN_DATE, date);
+        cv.put(COLUMN_TIME, time);
+
+        long result = db.update(TABLE_NAME, cv, "=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Update!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Updated!", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
 }
