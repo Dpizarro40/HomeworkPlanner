@@ -6,14 +6,16 @@ public class Tarea {
     private String fecha;
     private String ubicacion;
     private String horaEstimada;
+    private String prioridad;
 
 
-    public Tarea(String titulo, String descripcion, String fecha, String ubicacion, String horaEstimada) {
+    public Tarea(String titulo, String descripcion, String fecha, String ubicacion, String horaEstimada, String prioridad) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.ubicacion = ubicacion;
         this.horaEstimada = horaEstimada;
+        this.prioridad = prioridad;
     }
 
     public String getTitulo() {
@@ -55,4 +57,8 @@ public class Tarea {
     public void setHoraEstimada(String horaEstimada) {
         this.horaEstimada = horaEstimada;
     }
+
+    public String getPrioridad() { return prioridad; }
+
+    public void setPrioridad(String prioridad) { this.prioridad = prioridad; }
 }

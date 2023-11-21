@@ -81,6 +81,7 @@
                 android:paddingEnd="10dp"
                 android:background="@drawable/custom_input"
                 android:inputType="text"
+                android:drawableStart="@drawable/custom_location_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.281"

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.homeworkplanner.Controlador.ConexionHelper;
@@ -30,9 +31,9 @@ public class CrearTarea extends AppCompatActivity {
     private EditText fecha;
     private EditText ubicacion;
     private EditText hora;
+    private String prioridad;
     private RadioGroup radioGroup;
     private Calendar calendar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,16 +60,6 @@ public class CrearTarea extends AppCompatActivity {
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Obtener los valores de los campos de texto
-                /*MyDatabaseHelper myDB = new MyDatabaseHelper(CrearTarea.this);
-                myDB.aniadirTarea(nombre.getText().toString().trim(),
-                                  descripcion.getText().toString().trim(),
-                                  ubicacion.getText().toString().trim(),
-                                  fecha.getText().toString().trim(),
-                                  hora.getText().toString().trim());
-
-                Intent intent = new Intent(CrearTarea.this, Inicio.class);
-                startActivity(intent);*/
                 registrarUsuarios();
                 Intent intent = new Intent(CrearTarea.this, Inicio.class);
                 startActivity(intent);
@@ -100,10 +91,13 @@ public class CrearTarea extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.rbAlta) {
                     Toast.makeText(CrearTarea.this, "Ha seleccionado prioridad alta para su tarea", Toast.LENGTH_SHORT).show();
+                    prioridad = "Alta";
                 } else if (checkedId == R.id.rbMedia) {
                     Toast.makeText(CrearTarea.this, "Ha seleccionado prioridad media para su tarea", Toast.LENGTH_SHORT).show();
+                    prioridad = "Media";
                 } else if (checkedId == R.id.rbBaja){
                     Toast.makeText(CrearTarea.this, "Ha seleccionado prioridad baja para su tarea", Toast.LENGTH_SHORT).show();
+                    prioridad = "Baja";
                 }
             }
         });
@@ -177,9 +171,10 @@ public class CrearTarea extends AppCompatActivity {
         contentValues.put(Utility.COLUMN_LOCATION,ubicacion.getText().toString());
         contentValues.put(Utility.COLUMN_DATE,fecha.getText().toString());
         contentValues.put(Utility.COLUMN_TIME,hora.getText().toString());
+        contentValues.put(Utility.COLUMN_PRIORITY,prioridad.toString());
 
         Long idResultante = db.insert(Utility.TABLE_NAME,Utility.COLUMN_ID,contentValues);
-        Toast.makeText(getApplicationContext(), "ATENCION, id Registrado..." + idResultante, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Tarea creada exitosamente." + idResultante, Toast.LENGTH_SHORT).show();
         db.close();
     }
 }

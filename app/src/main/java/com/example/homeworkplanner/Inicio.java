@@ -2,6 +2,7 @@ package com.example.homeworkplanner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +21,7 @@ import java.util.List;
 public class Inicio extends AppCompatActivity {
     FloatingActionButton aniadir, actualizar;
     RecyclerView listaTareas;
-    ArrayList<String> tarea_id, tarea_titulo, tarea_descripcion, tarea_ubicacion, tarea_fecha, tarea_hora;
+    ArrayList<String> tarea_id, tarea_titulo, tarea_descripcion, tarea_ubicacion, tarea_fecha, tarea_hora, tarea_prioridad;
     ConexionHelper conn;
     CustomAdapter cada;
     @Override
@@ -54,9 +55,10 @@ public class Inicio extends AppCompatActivity {
         tarea_ubicacion = new ArrayList<>();
         tarea_fecha = new ArrayList<>();
         tarea_hora = new ArrayList<>();
+        tarea_prioridad = new ArrayList<>();
         storeDataInArrays();
 
-        cada = new CustomAdapter(Inicio.this,this, tarea_id, tarea_titulo, tarea_descripcion, tarea_ubicacion,  tarea_fecha, tarea_hora);
+        cada = new CustomAdapter(Inicio.this,this, tarea_id, tarea_titulo, tarea_descripcion, tarea_ubicacion,  tarea_fecha, tarea_hora, tarea_prioridad);
         listaTareas.setAdapter(cada);
         listaTareas.setLayoutManager(new LinearLayoutManager(Inicio.this));
     }
@@ -81,6 +83,7 @@ public class Inicio extends AppCompatActivity {
                 tarea_ubicacion.add(cursor.getString(3));
                 tarea_fecha.add(cursor.getString(4));
                 tarea_hora.add(cursor.getString(5));
+                tarea_prioridad.add(cursor.getString(6));
             }
         }
     }

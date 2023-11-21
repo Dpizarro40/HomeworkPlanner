@@ -9,6 +9,7 @@ public class Utility {
     public static final String COLUMN_LOCATION = "ubicacion";
     public static final String COLUMN_DATE = "fecha_estimada";
     public static final String COLUMN_TIME = "hora";
+    public static final String COLUMN_PRIORITY = "prioridad";
 
     public static final String CREATE_TABLE_TAREAS = "CREATE TABLE " + TABLE_NAME +
             " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -16,5 +17,6 @@ public class Utility {
             COLUMN_DESCRIPTION + " TEXT, " +
             COLUMN_LOCATION + " TEXT, " +
             COLUMN_DATE + " DATE, " +
-            COLUMN_TIME + " TEXT);";
+            COLUMN_TIME + " TEXT, " +
+            COLUMN_PRIORITY + " TEXT" + ");";
 }
