@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.homeworkplanner"
-        minSdk = 34
-        targetSdk = 34
+        minSdk = 30
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -22,6 +22,9 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

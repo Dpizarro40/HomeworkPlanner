@@ -49,9 +49,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.txtUbicacionView.setText(String.valueOf(txt_ubicacion.get(position)));
         holder.txtFechaView.setText(String.valueOf(txt_fecha.get(position)));
         holder.txtHoraView.setText(String.valueOf(txt_hora.get(position)));
-        //PENDIENTE AÑADIR A HOLDER PRIORIDAD
         holder.txtPrioridad.setText(String.valueOf(txt_prioridad.get(position)));
-
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.example.homeworkplanner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,14 +15,14 @@ import com.example.homeworkplanner.Controlador.ConexionHelper;
 import com.google.android.material.floatingactionbutton.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Inicio extends AppCompatActivity {
-    FloatingActionButton aniadir, actualizar;
+    FloatingActionButton aniadir, actualizar, help;
     RecyclerView listaTareas;
     ArrayList<String> tarea_id, tarea_titulo, tarea_descripcion, tarea_ubicacion, tarea_fecha, tarea_hora, tarea_prioridad;
     ConexionHelper conn;
     CustomAdapter cada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +31,16 @@ public class Inicio extends AppCompatActivity {
         aniadir = findViewById(R.id.buttonAdd);
         listaTareas = findViewById(R.id.rvLista);
         actualizar = findViewById(R.id.buttonUpdate);
+        help = findViewById(R.id.buttonHelp);
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
         aniadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +79,8 @@ public class Inicio extends AppCompatActivity {
             recreate();
         }
     }
+
+
 
     void storeDataInArrays() {
         Cursor cursor = conn.readAllData();
