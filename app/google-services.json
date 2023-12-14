@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "739530883771",
+    "project_id": "homeworkplanner-diegopizarro",
+    "storage_bucket": "homeworkplanner-diegopizarro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739530883771:android:76d0c752e0016bd5b6df9e",
+        "android_client_info": {
+          "package_name": "com.example.homeworkplanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGRcfQYJaIzNAJawoZ6D3q9ht4IDh_C5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

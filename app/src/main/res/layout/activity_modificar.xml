@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".ModificarActivity">
 
   <ScrollView
@@ -25,6 +26,7 @@
           android:layout_marginTop="50dp"
           android:layout_marginHorizontal="20dp"
           android:text="Modificar tarea"
+          android:fontFamily="@font/fuente_secundaria"
           android:textSize="34sp"
           android:textStyle="bold"
           app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +39,7 @@
           android:layout_width="wrap_content"
           android:layout_height="69dp"
           android:layout_marginTop="40dp"
+          android:backgroundTint="#95FFFFFF"
           android:background="@drawable/custom_input"
           android:ems="10"
           android:hint="Id"
@@ -48,6 +51,7 @@
           android:id="@+id/btnBuscar"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:backgroundTint="#F58553"
           android:text="Buscar"
           android:layout_marginTop="20dp"/>
 
@@ -60,6 +64,7 @@
           android:ems="10"
           android:hint=" Título"
           android:paddingStart="10dp"
+          android:backgroundTint="#95FFFFFF"
           android:paddingEnd="10dp"
           android:background="@drawable/custom_input"
           android:inputType="text"
@@ -77,6 +82,7 @@
           android:ems="10"
           android:gravity="start|top"
           android:hint=" Descripción"
+          android:backgroundTint="#95FFFFFF"
           android:paddingTop="10dp"
           android:paddingStart="10dp"
           android:paddingEnd="10dp"
@@ -97,6 +103,7 @@
           android:layout_marginBottom="20dp"
           android:hint=" Ubicación (Opcional)"
           android:paddingStart="10dp"
+          android:backgroundTint="#95FFFFFF"
           android:paddingEnd="10dp"
           android:background="@drawable/custom_input"
           android:drawableStart="@drawable/custom_location_icon"
@@ -118,6 +125,7 @@
           android:ems="10"
           android:focusable="false"
           android:background="@drawable/custom_input"
+          android:backgroundTint="#95FFFFFF"
           android:hint="Fecha estimada"
           android:paddingStart="10dp"
           android:paddingEnd="10dp"
@@ -139,6 +147,7 @@
           android:ems="10"
           android:focusable="false"
           android:background="@drawable/custom_input"
+          android:backgroundTint="#95FFFFFF"
           android:hint="Hora estimada"
           android:paddingStart="10dp"
           android:paddingEnd="10dp"
@@ -210,6 +219,7 @@
           android:layout_marginTop="15dp"
           android:layout_marginBottom="28dp"
           android:text="Modificar"
+          android:backgroundTint="#F58553"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintStart_toStartOf="parent" />
 
@@ -218,6 +228,7 @@
           android:layout_width="258dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="50dp"
+          android:backgroundTint="#F58553"
           android:layout_marginBottom="28dp"
           android:text="Eliminar" />
 
@@ -228,6 +239,7 @@
           android:layout_marginStart="50dp"
           android:layout_marginBottom="28dp"
           android:text="Cancelar"
+          android:backgroundTint="#F58553"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent" />
     </LinearLayout>

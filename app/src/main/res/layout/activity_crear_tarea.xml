@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".CrearTarea">
 
     <ScrollView
@@ -25,6 +26,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginHorizontal="20dp"
                 android:text="Crear tarea"
+                android:fontFamily="@font/fuente_secundaria"
                 android:textSize="34sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +42,7 @@
                 android:layout_marginBottom="20dp"
                 android:ems="10"
                 android:hint=" Título"
+                android:backgroundTint="#95FFFFFF"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:background="@drawable/custom_input"
@@ -58,6 +61,7 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint=" Descripción"
+                android:backgroundTint="#95FFFFFF"
                 android:paddingTop="10dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
@@ -77,6 +81,7 @@
                 android:layout_height="49dp"
                 android:layout_marginBottom="20dp"
                 android:hint=" Ubicación (Opcional)"
+                android:backgroundTint="#95FFFFFF"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:background="@drawable/custom_input"
@@ -99,6 +104,7 @@
                 android:focusable="false"
                 android:background="@drawable/custom_input"
                 android:hint="Fecha estimada"
+                android:backgroundTint="#95FFFFFF"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:drawablePadding="10dp"
@@ -120,6 +126,7 @@
                 android:focusable="false"
                 android:background="@drawable/custom_input"
                 android:hint="Hora estimada"
+                android:backgroundTint="#95FFFFFF"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:drawablePadding="10dp"
@@ -139,6 +146,7 @@
                 android:layout_marginVertical="15dp"
                 android:layout_marginBottom="28dp"
                 android:text="Nivel de prioridad"
+                android:fontFamily="@font/fuente_secundaria"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -190,6 +198,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="28dp"
                 android:text="Crear"
+                android:backgroundTint="#F58553"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -200,6 +209,7 @@
                 android:layout_marginStart="50dp"
                 android:layout_marginBottom="28dp"
                 android:text="Cancelar"
+                android:backgroundTint="#F58553"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
         </LinearLayout>

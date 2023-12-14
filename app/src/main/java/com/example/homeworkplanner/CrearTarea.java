@@ -60,9 +60,25 @@ public class CrearTarea extends AppCompatActivity {
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registrarUsuarios();
+                String nombreTarea = nombre.getText().toString().trim();
+                String descripcionTarea = descripcion.getText().toString().trim();
+                String ubicacionTarea = ubicacion.getText().toString().trim();
+                String fechaTarea = fecha.getText().toString().trim();
+                String horaTarea = hora.getText().toString().trim();
+                int radioButtonId = radioGroup.getCheckedRadioButtonId();
                 Intent intent = new Intent(CrearTarea.this, Inicio.class);
-                startActivity(intent);
+                // Validar campos vacíos
+                if (nombreTarea.isEmpty() || descripcionTarea.isEmpty() || ubicacionTarea.isEmpty() || fechaTarea.isEmpty() || horaTarea.isEmpty() || prioridad == null) {
+                    Toast.makeText(getApplicationContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if (radioButtonId == -1){
+                    Toast.makeText(getApplicationContext(), "Por favor, seleccione una prioridad", Toast.LENGTH_SHORT).show();
+                    return;
+                }else{
+                    registrarUsuarios();
+                    startActivity(intent);
+                }
             }
         });
 

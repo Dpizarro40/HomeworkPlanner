@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HelpActivity"
     android:orientation="vertical"
+    android:background="@drawable/bg"
     >
 
     <ScrollView
@@ -26,6 +27,7 @@
                 android:layout_marginHorizontal="90dp"
                 android:paddingVertical="20dp"
                 android:gravity="center"
+                android:fontFamily="@font/fuente_secundaria"
                 android:text="Guía de uso."
                 android:textSize="40dp"
                 android:textStyle="bold"
@@ -44,6 +46,7 @@
                 android:text="Si necesitas ayuda de cómo usar la lista de
 tareas pendientes, a continuación, se muestra un video tutorial
 de como se crea una tarea y se modifica."
+                android:fontFamily="@font/fuente_secundaria"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,11 +65,27 @@ de como se crea una tarea y se modifica."
                 app:layout_constraintVertical_bias="0.549" />
 
             <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:text="- Como puedes notar en el video, hay campos como título, descripción, ubicación, fecha y hora, además de los radio buttons para clasificar
+el nivel de prioridad de tu tarea."
+                android:fontFamily="@font/fuente_secundaria"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.281" />
+
+            <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/fuente_secundaria"
                 android:text="- Rellena todos los campos que requieras necesarios, exceptuando el titulo, la descripción
 la fecha y la hora, que son obligatorios. La ubicación es completamente opcional."
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -76,26 +95,13 @@ la fecha y la hora, que son obligatorios. La ubicación es completamente opciona
                 app:layout_constraintVertical_bias="0.806" />
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="57dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="20dp"
-                android:text="- Como puedes notar en el video, hay campos como título, descripción, ubicación, fecha y hora, además de los radio buttons para clasificar
-el nivel de prioridad de tu tarea."
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.281" />
-
-            <TextView
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/fuente_secundaria"
                 android:text="Espero que este pequeño tutorial te haya sido de utilidad
 para gestionar tus tareas. ¡Ten un excelente día!"
                 android:textStyle="bold"
@@ -110,6 +116,8 @@ para gestionar tus tareas. ¡Ten un excelente día!"
                 android:layout_height="67dp"
                 android:layout_marginBottom="20dp"
                 android:text="Regresar"
+                android:backgroundTint="#F58553"
+                android:fontFamily="@font/fuente_secundaria"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

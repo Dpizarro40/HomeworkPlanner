@@ -65,9 +65,16 @@ public class ModificarActivity extends AppCompatActivity {
         eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                eliminarUsuario();
+                String idTarea = id.getText().toString().trim();
                 Intent intent = new Intent(ModificarActivity.this, Inicio.class);
-                startActivity(intent);
+                // Validar campos vacíos
+                if (idTarea.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Por favor, ingrese el id a eliminar", Toast.LENGTH_SHORT).show();
+                    return;
+                }else{
+                    eliminarUsuario();
+                    startActivity(intent);
+                }
             }
         });
 
@@ -82,9 +89,25 @@ public class ModificarActivity extends AppCompatActivity {
         modificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actualizarUsuario();
+                String nombreTarea = nombre.getText().toString().trim();
+                String descripcionTarea = descripcion.getText().toString().trim();
+                String ubicacionTarea = ubicacion.getText().toString().trim();
+                String fechaTarea = fecha.getText().toString().trim();
+                String horaTarea = hora.getText().toString().trim();
+                int radioButtonId = radioGroup.getCheckedRadioButtonId();
                 Intent intent = new Intent(ModificarActivity.this, Inicio.class);
-                startActivity(intent);
+                // Validar campos vacíos
+                if (nombreTarea.isEmpty() || descripcionTarea.isEmpty() || ubicacionTarea.isEmpty() || fechaTarea.isEmpty() || horaTarea.isEmpty() || prioridad == null) {
+                    Toast.makeText(getApplicationContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if (radioButtonId == -1){
+                    Toast.makeText(getApplicationContext(), "Por favor, seleccione una prioridad", Toast.LENGTH_SHORT).show();
+                    return;
+                }else{
+                    actualizarUsuario();
+                    startActivity(intent);
+                }
             }
         });
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
